@@ -9,11 +9,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
+@SuppressWarnings("unused")
+
+
 public class App {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
     }
 
 }
