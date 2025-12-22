@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Allow gitignore itself
+!.gitignore
+
+# Allow directories
+!*/
+
+# Allow source files
+!*.java
+!*.fxml
+!*.css
+!*.xml
