@@ -54,7 +54,7 @@ InputStream fis = getClass().getClassLoader()
 
 
 
-        object.conn = DriverManager.getConnection(url,username,password);
+        object.connection = DriverManager.getConnection(url,username,password);
 
         object.tablename = tablename ;
 
@@ -83,22 +83,22 @@ System.out.println("Connection succesfull!");
 
 class struct {
 
-public  Connection conn ;
+public  Connection connection ;
 
    public  String tablename ;
 
 
     struct ()
     { 
-        conn = null ;
+        connection = null ;
 
         tablename = "";
 
     }
 
-    struct ( Connection conn , String tablename )
+    struct ( Connection connection , String tablename )
     {
-          this.conn = conn ;
+          this.connection = connection;
           this.tablename = tablename ;
 
 
