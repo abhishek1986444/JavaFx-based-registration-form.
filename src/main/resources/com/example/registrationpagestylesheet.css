@@ -1,0 +1,66 @@
+/* Root background */
+.root {
+    background-color: #f4f6f9;              /* standard */
+    -fx-background-color: #f4f6f9;           /* JavaFX */
+}
+
+/* Title label */
+.label {
+    -fx-text-fill: #333333;
+    -fx-font-family: "Segoe UI";
+}
+
+.label:title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* TextFields & PasswordField */
+.text-field,
+.password-field {
+    background-color: white;
+    -fx-background-color: white;
+
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+
+    -fx-padding: 6 8;
+    -fx-font-size: 13px;
+}
+
+/* Focus effect */
+.text-field:focused,
+.password-field:focused {
+    -fx-border-color: #4f46e5;
+}
+
+/* Button */
+.button {
+    background-color: #4f46e5;
+    -fx-background-color: #4f46e5;
+
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    background-color: #4338ca;
+    -fx-background-color: #4338ca;
+}
+
+/* Checkbox */
+.check-box {
+    -fx-font-size: 12px;
+}
+
+/* Terms label */
+.label.terms {
+    -fx-text-fill: #555555;
+    -fx-font-size: 12px;
+}

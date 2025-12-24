@@ -66,17 +66,25 @@ public  void  register() throws SQLException  // add register function in the co
 
  String user_id = useridField.getText().trim();
 
-
+System.out.println( "User Id  " + user_id);
 
 String mail_id = mailField.getText().trim() ; 
+
+System.out.println(  "mail id " + mail_id);
 
 
 
 String password = passwordField.getText().trim();
 
+System.out.println(  "Password " + password);
+
+
+
 
 String username = usernameField.getText().trim() ;
 
+
+System.out.println( " User name " + username);
 
 
 
@@ -109,15 +117,6 @@ object.connection.close();
 }
 
 
-public  void main ( String [] arg ) throws SQLException
-{
-
-    register();
-
-    System.out.println("function is executed succesfully !! ");
-
-
-}
 
     
 }
