@@ -1,27 +1,27 @@
 package com.example;
 
 import java.sql.SQLException;
-
+import java.io.IOException;
 import java.sql.*;
 
 import java.sql.PreparedStatement;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import javafx.scene.control.TextField;
-
-
+import javafx.stage.Stage;
 import javafx.scene.control.PasswordField ;
-
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-
-
 
 
 @SuppressWarnings(  "unused" )
@@ -35,18 +35,17 @@ public class controller {
 
 
 
-    @FXML  private TextField useridField;
+    @FXML private TextField useridField;
 
     @FXML private TextField usernameField ;
-
 
     @FXML private TextField mailField ;
 
     @FXML private PasswordField passwordField ;
 
-    @FXML private  CheckBox termsCheckBox ; 
+    @FXML private CheckBox termsCheckBox ; 
 
-    @FXML private Label statusLabel ; // needed review 
+    @FXML private Label statusLabel ; 
 
 
 
@@ -65,35 +64,23 @@ public  controller () throws Exception{
  
 
 
-public  void  register() throws SQLException  // add register function in the controller.java file 
+public  void  register() throws SQLException 
 
  
 {
 
- String user_id = useridField.getText().trim();
 
+ String user_id = useridField.getText().trim();
 
 String mail_id = mailField.getText().trim() ; 
 
-
-
-
 String password = passwordField.getText().trim();
-
-
-
-
 
 String username = usernameField.getText().trim() ;
 
 
 
-
-
-
-// code for the status label 
-
-    termsCheckBox.getStyleClass().remove("error-checkbox"); // reset
+ termsCheckBox.getStyleClass().remove("error-checkbox"); // reset
 
     
 
@@ -105,6 +92,7 @@ String username = usernameField.getText().trim() ;
         showError("All fields are required ❌");
         return;
     }
+
 
 if ( !termsCheckBox.isSelected())
 {
@@ -121,21 +109,14 @@ return ;
 
 }
 
-System.out.println( " User name " + username);
 
 
-System.out.println( "User Id  " + user_id);
+System.out.println( " User name " + username);  //  this statements are four testing purposes 
+System.out.println( "User Id  " + user_id); // 
+System.out.println(  "mail id " + mail_id);  //
 
 
-System.out.println(  "mail id " + mail_id);
-
-
-
-    // If everything is valid
-    showSuccess("Registration successful ✔");
-
-
-    // 
+showSuccess("Registration successful ✔");
 
 
 
@@ -156,16 +137,23 @@ ps.setString( 4, username );
 
 System.out.println(ps.executeUpdate());
 
-ps.close();
+// ps.close();
 
-object.connection.close();
+//object.connection.close();
+
+
+     useridField.clear();
+     mailField.clear();
+     passwordField.clear();
+     usernameField.clear();
+
+
 
 
 
 }
 
 
-// need review 
 
 
 
@@ -183,8 +171,43 @@ private void showError(String message) {
     statusLabel.getStyleClass().addAll("status-label", "status-error");
 }
 
-// 
 
+@FXML private void openTermsScene( ActionEvent event)  throws IOException 
+
+{
+
+
+    if ( !termsCheckBox.isSelected())
+
+        return ;
+
+
+  
+  Parent  rootofterms = FXMLLoader.load(getClass().getResource("/com/example/termspage.fxml"));
+
+
+   Stage stage = new Stage();
+
+
+   stage.setTitle("Terms and Conditions");
+
+
+   stage.setScene(new Scene ( rootofterms )) ;
+
+
+   stage.initOwner(
+    ((Node) event.getSource()).getScene().getWindow()
+); // need review 
+
+
+
+   stage.show();
+
+
+
+   
+
+}
     
 }
 
